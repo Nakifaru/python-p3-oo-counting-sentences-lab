@@ -25,10 +25,13 @@ class MyString:
     return self.value.endswith('!')
   
   def count_sentences(self):
-    self.value.replace('!', '.')
-    self.value.replace('?', '.')
-    split_sentences = self.value.split('.')
-    return len(split_sentences)
+    partially_replaced =self.value.replace('!', '.')
+    fully_replaced = partially_replaced.replace('?', '.')
+    split_sentences = fully_replaced.split('.')
+    non_empty_sentences = list(filter(None, split_sentences))
+    return len(non_empty_sentences)
+  
+
 
 
 
